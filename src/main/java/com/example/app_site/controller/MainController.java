@@ -26,7 +26,7 @@ public class MainController {
     private static String uploadPath = "/C:/Users/Evgeniy/Desktop/app/uploads";
 
     @GetMapping("/")
-    public String greeting(Map<String, Object> model) {
+    public String greeting() {
         return "greeting";
     }
 
