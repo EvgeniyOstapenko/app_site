@@ -27,7 +27,7 @@ public class MainController {
     @Autowired
     private UserService userService;
     @Value("${upload.path}")
-    private static String uploadPath = "/C:/Users/Evgeniy/Desktop/app/uploads";
+    private static String uploadPath = "/A:/Users/Evgeniy/Desktop/app/uploads";
 
     @GetMapping("/")
     public String greeting() throws Exception {
