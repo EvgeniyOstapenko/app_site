@@ -1,17 +1,16 @@
 package com.example.app_site.exception;
 
-import org.springframework.boot.web.servlet.error.ErrorController;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
-public class ExceptionController implements ErrorController {
+public class ExceptionController {
 
-    @Override
-    @ResponseBody
-    @RequestMapping("/error")
-    public String getErrorPath() {
-        return "No Mapping Found";
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(value = Exception.class)
+    public String handleBaseException(Exception e){
+        return e.getMessage();
     }
 }

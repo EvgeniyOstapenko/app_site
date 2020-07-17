@@ -16,4 +16,10 @@ public class UserService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return userRepo.findByUsername(username);
     }
+
+    public void exception() throws Exception {
+        throw new RuntimeException("Game over");
+    }
+
+
 }

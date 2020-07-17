@@ -3,6 +3,7 @@ package com.example.app_site.controller;
 import com.example.app_site.domain.Message;
 import com.example.app_site.domain.User;
 import com.example.app_site.repos.MessageRepo;
+import com.example.app_site.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -15,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.SQLOutput;
 import java.util.Map;
 import java.util.UUID;
 
@@ -22,11 +24,13 @@ import java.util.UUID;
 public class MainController {
     @Autowired
     private MessageRepo messageRepo;
+    @Autowired
+    private UserService userService;
     @Value("${upload.path}")
     private static String uploadPath = "/C:/Users/Evgeniy/Desktop/app/uploads";
 
     @GetMapping("/")
-    public String greeting() {
+    public String greeting() throws Exception {
         return "greeting";
     }
 
