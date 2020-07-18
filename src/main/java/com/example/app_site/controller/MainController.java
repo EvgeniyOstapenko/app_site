@@ -27,7 +27,7 @@ public class MainController {
     @Autowired
     private UserService userService;
     @Value("${upload.path}")
-    private static String uploadPath = "/A:/Users/Evgeniy/Desktop/app/uploads";
+    private String uploadPath;
 
     @GetMapping("/")
     public String greeting() throws Exception {
@@ -66,7 +66,7 @@ public class MainController {
         return "main";
     }
 
-    private static void addFileToMessage(MultipartFile picture, Message message) throws IOException {
+    private void addFileToMessage(MultipartFile picture, Message message) throws IOException {
         if (picture != null && !picture.getOriginalFilename().isEmpty()) {
             File uploadDir = new File(uploadPath);
 
